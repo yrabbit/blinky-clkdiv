@@ -41,7 +41,12 @@ wire clkout;
 wire div2_out;
 wire o_clk;
 
-assign clkout = clk;
+DHCEN den(
+	.CLKIN(clk),
+	.CE(rst),
+	.CLKOUT(clkout)
+);
+//assign clkout = clk;
 
 CLKDIV2 my_div2 (
 	.RESETN(1'b1),
